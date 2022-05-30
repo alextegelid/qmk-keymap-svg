@@ -5,6 +5,7 @@ import style
 from labels import get_label
 from html import escape
 from parse_keymap import parse_keymap
+from parse_hold_action import parse_hold_action
 
 # Exit if there are no arguments
 if len(sys.argv) != 2:
@@ -48,19 +49,52 @@ def filter_key_word(string):
 
 def print_key(x, y, key):
     key_class = ""
+    key_hold_name = ""
+    key_hold_type = ""
+    key = parse_hold_action(key)
+
+    print
+
     if type(key) is dict:
-        key_class = key["class"]
-        key = key["key"]
+        key_class = key["class"] if "class" in key else ""
+        key_hold_name = key["hold-key"] if "hold-key" in key else ""
+        key_name = key["key"] if "key" in key else ""
+        key_hold_type = key["type"] if "type" in key else "no-hold"
+    else:
+        key_name = key
+
     print(
         f'<rect rx="{settings.key_rx}" ry="{settings.key_ry}" x="{x + settings.inner_pad_w}" y="{y + settings.inner_pad_h}" width="{settings.key_w}" height="{settings.key_h}" class="{key_class}" />'
     )
-    words = key.split()
-    y += (KEYSPACE_H - (len(words) - 1) * settings.line_spacing) / 2
-    for word in key.split():
+    
+    words = key_name.split()
+    label_y = y + KEYSPACE_H / 2
+
+    if key_hold_type == "mod-tap":
+        hold_action_font_size = settings.font_size * 0.8
+        hold_action_y = y + KEYSPACE_H - hold_action_font_size
         print(
-            f'<text text-anchor="middle" font-size="{settings.font_size}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{y}">{escape(filter_key_word(word))}</text>'
+            f'<text text-anchor="middle" font-size="{settings.font_size}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(filter_key_word(key_name))}</text>'
         )
-        y += settings.line_spacing
+        print(
+            f'<text text-anchor="middle" font-size="{hold_action_font_size}" class="hold-action -{key_hold_type}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{hold_action_y}">{escape(key_hold_name)}</text>'
+        )
+
+    elif key_hold_type == "default-layer":
+        label_y = y + (KEYSPACE_H - (len(words) - 1) * settings.line_spacing) / 2
+        for word in key_name.split():
+            print(
+                f'<text text-anchor="middle" font-size="{settings.font_size}" class="default-layer" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(filter_key_word(word))}</text>'
+            )
+            label_y += settings.line_spacing
+
+    else:
+        label_y = y + (KEYSPACE_H - (len(words) - 1) * settings.line_spacing) / 2
+        for word in key_name.split():
+            print(
+                f'<text text-anchor="middle" font-size="{settings.font_size}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(filter_key_word(word))}</text>'
+            )
+            label_y += settings.line_spacing
 
 
 def print_row(x, y, row):

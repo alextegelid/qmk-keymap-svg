@@ -13,5 +13,5 @@ inner_pad_h = 2
 outer_pad_w = 40
 outer_pad_h = 40
 
-line_spacing = 18
-font_size = 10
+font_size = 11
+line_spacing = font_size * 1.1

@@ -15,4 +15,20 @@ STYLE = """
     .held {
         fill: #fdd;
     }
+
+    .hold-action {
+        text-style: italic;
+    }
+
+    .hold-action.-mod-tap {
+        fill: #da2c38;
+    }
+
+    .hold-action.-layer {
+        fill: #1B98E0;
+    }
+
+    .default-layer {
+        fill: #fcdfa6;
+    }
 """

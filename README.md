@@ -10,4 +10,6 @@ Currently only works with the layout of the Ferris Sweep keyboard.
 - [ ] Parse and show layer toggles
 - [ ] Show held layer toggles on the correct layer
 - [ ] Find and parse custom keycodes
+- [X] Find and parse mod-tap and modifier keys
+- [X] Show default layer keys
 - [X] Make sure whitespace inside parentheses is ignored
