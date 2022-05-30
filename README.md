@@ -4,5 +4,6 @@ Derived from [callum-oakley/keymap](https://github.com/callum-oakley/keymap) thi
 Currently only works with the layout of the Ferris Sweep keyboard.
 
 ## Todo
-* Parse layer toggles
-* Find and parse custom keycodes
+[ ] Parse layer toggles
+[ ] Find and parse custom keycodes
+[ ] Make sure whitespace inside parentheses is ignored
