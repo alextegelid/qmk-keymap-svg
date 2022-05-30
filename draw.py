@@ -70,7 +70,7 @@ def print_key(x, y, key):
     words = key_name.split()
     label_y = y + KEYSPACE_H / 2
 
-    if key_hold_type == "mod-tap":
+    if key_hold_type == "mod-tap" or key_hold_type == "layer":
         hold_action_font_size = settings.font_size * 0.8
         hold_action_y = y + KEYSPACE_H - hold_action_font_size
         print(
