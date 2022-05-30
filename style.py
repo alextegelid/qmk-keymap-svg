@@ -10,6 +10,7 @@ STYLE = """
 
     rect {
         fill: #f6f8fa;
+        stroke: #e1e4e8;
     }
 
     .held {
