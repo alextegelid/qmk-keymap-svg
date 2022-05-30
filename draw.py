@@ -126,9 +126,10 @@ LAYER_H = HAND_H
 BOARD_W = LAYER_W + 2 * settings.outer_pad_w
 BOARD_H = len(KEYMAP) * LAYER_H + (len(KEYMAP) + 1) * settings.outer_pad_h
 
-orig_stdout = sys.stdout
-f = open("keymap.svg", "w")
-sys.stdout = f
+if settings.debug is False:
+    orig_stdout = sys.stdout
+    f = open("keymap.svg", "w")
+    sys.stdout = f
 
 print(
     f'<svg width="{BOARD_W}" height="{BOARD_H}" viewBox="0 0 {BOARD_W} {BOARD_H}" xmlns="http://www.w3.org/2000/svg">'
@@ -137,5 +138,6 @@ print(f"<style>{style.STYLE}</style>")
 print_board(0, 0, KEYMAP)
 print("</svg>")
 
-sys.stdout = orig_stdout
-f.close()
+if settings.debug is False:
+    sys.stdout = orig_stdout
+    f.close()

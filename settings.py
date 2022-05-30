@@ -2,6 +2,7 @@ hand_cols = 5
 hand_rows = 3
 hand_thumbs_cols = 2
 
+debug = False
 
 key_w = 60
 key_h = 45
