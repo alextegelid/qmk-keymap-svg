@@ -7,7 +7,7 @@ Currently only works with the layout of the Ferris Sweep keyboard.
 `> python3 draw.py path/to/keymap.c`
 
 ## Todo
-- [ ] Parse and show layer toggles
+- [X] Parse and show layer toggles
 - [ ] Show held layer toggles on the correct layer
 - [ ] Find and parse custom keycodes
 - [X] Find and parse mod-tap and modifier keys
