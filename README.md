@@ -4,7 +4,9 @@ Derived from [callum-oakley/keymap](https://github.com/callum-oakley/keymap) thi
 Currently only works with the layout of the Ferris Sweep keyboard.
 
 ## Usage
-`> python3 draw.py path/to/keymap.c`
+```
+python3 draw.py path/to/keymap.c
+```
 
 ## Todo
 - [X] Parse and show layer toggles
