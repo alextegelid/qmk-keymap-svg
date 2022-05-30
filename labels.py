@@ -4,6 +4,7 @@ def get_label(keycode):
 keylabels = {
     "XXXXXXX": "",
     "_______": "",
+    "ODIA": "Ö",
     "MINS": "-",
     "MINUS": "-",
     "COMM": ",",
