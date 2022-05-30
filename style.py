@@ -1,5 +1,3 @@
-import settings
-
 STYLE = """
     svg {
         font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
