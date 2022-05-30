@@ -26,10 +26,6 @@
     .hold-action.-layer {
         fill: #1B98E0;
     }
-
-    .default-layer {
-        fill: #fcdfa6;
-    }
 </style>
 <text text-anchor="middle" font-size="16.5" dominant-baseline="middle" x="380.0" y="40">BASE</text>
 <rect rx="6" ry="6" x="42" y="58.5" width="60" height="45" class="" />

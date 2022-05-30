@@ -27,8 +27,4 @@ STYLE = """
     .hold-action.-layer {
         fill: #1B98E0;
     }
-
-    .default-layer {
-        fill: #fcdfa6;
-    }
 """
