@@ -50,8 +50,12 @@ def parse_keymap(keymap_rows):
     return keymap
 
 def prepare_row(row):
-    # Split the string in row by comma. 
+    # Remove whitespace inside parenthesis.
+    safe_row = re.sub(r'\(.*?\)', lambda x: ''.join(x.group(0).split()), row)
+
+    # Split the string in row by space. 
     keys = []
-    for key in row.split():
+    for key in safe_row.split():
+        # Trim unnecessary whitespace and commas.
         keys.append(key.strip("\t\n\r,"))
     return keys

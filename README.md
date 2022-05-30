@@ -6,4 +6,4 @@ Currently only works with the layout of the Ferris Sweep keyboard.
 ## Todo
 [ ] Parse layer toggles
 [ ] Find and parse custom keycodes
-[ ] Make sure whitespace inside parentheses is ignored
+[X] Make sure whitespace inside parentheses is ignored

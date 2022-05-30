@@ -1,9 +1,10 @@
 import sys
-from parse_keymap import parse_keymap
 import settings
 import style
+
 from labels import get_label
 from html import escape
+from parse_keymap import parse_keymap
 
 # Exit if there are no arguments
 if len(sys.argv) != 2:
