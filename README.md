@@ -9,6 +9,9 @@ python3 draw.py path/to/keymap.c
 ```
 The `keymap.svg` file will be saves (or overwritten) in the same folder as `draw.py`. 
 
+## Demo image
+![Demo of how the output may look](keymap-demo-image.png)
+
 ## Todo
 - [X] Parse and show layer toggles
 - [ ] Show held layer toggles on the correct layer
