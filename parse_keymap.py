@@ -1,4 +1,3 @@
-import sys
 import re
 
 def parse_keymap(keymap_rows):
