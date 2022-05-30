@@ -3,7 +3,7 @@ Derived from [callum-oakley/keymap](https://github.com/callum-oakley/keymap) thi
 
 This is very much a work in progress. If you have any suggestions, please open a PR or an issue.
 
-Currently only works with the layout of the Ferris Sweep keyboard.
+Currently only works with the layout of the [Ferris keyboard](https://github.com/davidphilipbarr/Sweep). I use the [Ben Vallack mod](https://github.com/benvallack/Ferris-Sweep-Tweaked) of the [Ferris Sweep](https://github.com/davidphilipbarr/Sweep) myself.
 
 ## Usage
 ```
