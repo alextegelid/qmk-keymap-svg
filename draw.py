@@ -19,20 +19,7 @@ FILENAME = sys.argv[1]
 f = open(FILENAME, "r")
 filecontents = f.read()
 
-# Find the beginning of the keymap definition
-start_marker_pos = filecontents.find("[MATRIX_ROWS][MATRIX_COLS]")
-
-if start_marker_pos == -1:
-    print("The keymap definition was not found in the keymap.")
-    sys.exit(1)
-
-start_pos = filecontents.find("\n", start_marker_pos)
-end_pos = filecontents.find("}", start_pos + 1) - 1
-keymap_extracted = filecontents[start_pos:end_pos]
-
-keymap_rows = keymap_extracted.split("\n")
-
-KEYMAP = parse_keymap(keymap_rows)
+KEYMAP = parse_keymap(filecontents)
 
 def held(key):
     return {"key": key, "class": "held"}

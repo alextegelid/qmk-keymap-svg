@@ -1,7 +1,19 @@
 import re
 import settings
 
-def parse_keymap(keymap_rows):
+def parse_keymap(filecontents):
+    # Find the beginning of the keymap definition
+    start_marker_pos = filecontents.find("[MATRIX_ROWS][MATRIX_COLS]")
+
+    if start_marker_pos == -1:
+        print("The keymap definition was not found in the keymap file.")
+        sys.exit(1)
+
+    start_pos = filecontents.find("\n", start_marker_pos)
+    end_pos = filecontents.find("}", start_pos + 1) - 1
+    keymap_extracted = filecontents[start_pos:end_pos]
+
+    keymap_rows = keymap_extracted.split("\n")
     # Parse the keymap.
     keymap = {}
     current_layer = ""
