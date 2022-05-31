@@ -1,4 +1,5 @@
 import re
+import sys
 import settings
 
 def parse_keymap(filecontents):
