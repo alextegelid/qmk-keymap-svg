@@ -10,7 +10,7 @@ from custom_keycodes import get_custom_keycode_definitions, expand_custom_keycod
 
 # Exit if there are no arguments
 if len(sys.argv) != 2:
-    print("Usage: draw.py keymap.c")
+    print("Usage: qmk_keymap_svg.py keymap.c")
     sys.exit(1)
 
 # Get the filename from the first argument
