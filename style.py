@@ -11,6 +11,11 @@ STYLE = """
         stroke: #e1e4e8;
     }
 
+    .layer-rect {
+        fill: #d0e7f5;
+        stroke: transparent;
+    }
+
     .held {
         fill: #fdd;
     }
@@ -24,6 +29,6 @@ STYLE = """
     }
 
     .hold-action.-layer {
-        fill: #1B98E0;
+        fill: #024063;
     }
 """

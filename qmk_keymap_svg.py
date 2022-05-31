@@ -68,11 +68,25 @@ def print_key(x, y, key):
     words = key_name.split()
     label_y = y + KEYSPACE_H / 2
 
-    if key_hold_type == "mod-tap" or key_hold_type == "layer":
-        hold_action_font_size = settings.font_size * 0.8
+    if key_hold_type == "mod-tap":
+        hold_action_font_size = settings.font_size * 0.75
         hold_action_y = y + KEYSPACE_H - hold_action_font_size
         print(
             f'<text text-anchor="middle" font-size="{settings.font_size}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(key_name)}</text>'
+        )
+        print(
+            f'<text text-anchor="middle" font-size="{hold_action_font_size}" class="hold-action -{key_hold_type}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{hold_action_y}">{escape(key_hold_name)}</text>'
+        )
+
+    if key_hold_type == "layer":
+        hold_action_font_size = settings.font_size * 0.75
+        label_bg_height = hold_action_font_size * 1.2
+        hold_action_y = y + KEYSPACE_H - label_bg_height/1.35
+        print(
+            f'<text text-anchor="middle" font-size="{settings.font_size}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(key_name)}</text>'
+        )
+        print(
+           f'<rect rx="{settings.key_rx}" ry="{settings.key_ry}" x="{x + settings.inner_pad_w}" y="{y + settings.key_h + settings.inner_pad_w - label_bg_height}" width="{settings.key_w}" height="{label_bg_height}" class="layer-rect" />'
         )
         print(
             f'<text text-anchor="middle" font-size="{hold_action_font_size}" class="hold-action -{key_hold_type}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{hold_action_y}">{escape(key_hold_name)}</text>'
