@@ -1,7 +1,7 @@
 import re
 
 def parse_hold_action(key):
-    # Layer toggle
+    # Layer toggle, LT(...)
     if key.startswith("LT(") and key.endswith(")"):
         key = key[3:-1]
         key = key.split(",")
@@ -13,7 +13,7 @@ def parse_hold_action(key):
             "type": "layer",
         }
 
-    # Default layer
+    # Default layer, DF(...)
     df_toggle = re.findall(r"(DF)\((\w+)", key)
     if df_toggle:
         df = df_toggle[0]
