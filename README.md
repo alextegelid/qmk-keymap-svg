@@ -5,9 +5,9 @@ Currently only works with the layout of the [Ferris keyboard](https://github.com
 
 ## Usage
 ```
-python3 draw.py path/to/keymap.c
+python3 qmk-keymap-svg.py path/to/keymap.c
 ```
-The `keymap.svg` file will be saves (or overwritten) in the same folder as `draw.py`. 
+The `keymap.svg` file will be saves (or overwritten) in the same folder as `qmk-keymap-svg.py`. 
 
 ## Demo image
 ![Demo of how the output may look](keymap-demo.png)
