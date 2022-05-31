@@ -72,4 +72,5 @@ keylabels = {
     "UP": "↑",
     "PGDN": "PgDn",
     "PGUP": "PgUp",
+    "CAPSWORD": "Caps Word",
 }
