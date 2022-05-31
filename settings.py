@@ -21,3 +21,4 @@ line_spacing = font_size * 1.1
 auto_capitalize_keycode = True
 
 parse_custom_keycodes = True
+search_included_header_files = True
