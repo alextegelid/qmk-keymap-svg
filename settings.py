@@ -15,3 +15,7 @@ outer_pad_h = 40
 
 font_size = 11
 line_spacing = font_size * 1.1
+
+# Auto capitalize keycodes that is not in the labels list.
+# Keycodes that includes an underscore will not be capitalized.
+auto_capitalize_keycode = True

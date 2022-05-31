@@ -30,8 +30,11 @@ def filter_key_word(string):
         .replace("KC_", "")\
         .replace("SE_", "")
 
-    keylabel = get_label(stripped_keycode)
-    return get_label(keylabel)
+    key_label = get_label(stripped_keycode)
+    if "_" not in key_label and settings.auto_capitalize_keycode:
+        key_label = key_label.title()
+
+    return key_label
 
 
 def print_key(x, y, key):
