@@ -5,7 +5,7 @@ import style
 from labels import get_label
 from html import escape
 from parse_keymap import parse_keymap
-from parse_hold_action import parse_hold_action
+from parse_key_action import parse_key_action
 
 # Exit if there are no arguments
 if len(sys.argv) != 2:
@@ -51,7 +51,7 @@ def print_key(x, y, key):
     key_class = ""
     key_hold_name = ""
     key_hold_type = ""
-    key = parse_hold_action(key)
+    key = parse_key_action(key)
 
     print
 

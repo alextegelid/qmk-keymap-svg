@@ -1,6 +1,6 @@
 import re
 
-def parse_hold_action(key):
+def parse_key_action(key):
     # Layer toggle, LT(...)
     if key.startswith("LT(") and key.endswith(")"):
         key = key[3:-1]
