@@ -51,8 +51,6 @@ def print_key(x, y, key):
     key_hold_type = ""
     key = parse_key_action(key)
 
-    print
-
     if type(key) is dict:
         key_class = key["class"] if "class" in key else ""
         key_hold_name = key["hold-key"] if "hold-key" in key else ""
