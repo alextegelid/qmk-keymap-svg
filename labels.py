@@ -65,4 +65,11 @@ keylabels = {
     "NUBS": "Non-US \ and |",
     "NONUS_HASH": "Non-US # and ~",
     "NUHS": "Non-US # and ~",
+    "RIGHT": "→",
+    "RGHT": "→",
+    "LEFT": "←",
+    "DOWN": "↓",
+    "UP": "↑",
+    "PGDN": "PgDn",
+    "PGUP": "PgUp",
 }
