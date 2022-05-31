@@ -78,14 +78,6 @@ def print_key(x, y, key):
             f'<text text-anchor="middle" font-size="{hold_action_font_size}" class="hold-action -{key_hold_type}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{hold_action_y}">{escape(key_hold_name)}</text>'
         )
 
-    elif key_hold_type == "default-layer":
-        label_y = y + (KEYSPACE_H - (len(words) - 1) * settings.line_spacing) / 2
-        for word in key_name.split():
-            print(
-                f'<text text-anchor="middle" font-size="{settings.font_size}" class="default-layer" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(word)}</text>'
-            )
-            label_y += settings.line_spacing
-
     else:
         label_y = y + (KEYSPACE_H - (len(words) - 1) * settings.line_spacing) / 2
         for word in key_name.split():
