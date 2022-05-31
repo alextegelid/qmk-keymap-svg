@@ -19,3 +19,4 @@ The `keymap.svg` file will be saves (or overwritten) in the same folder as `draw
 - [X] Find and parse mod-tap and modifier keys
 - [X] Show default layer keys
 - [X] Make sure whitespace inside parentheses is ignored
+- [ ] Add support for arbitrary keyboard layouts
