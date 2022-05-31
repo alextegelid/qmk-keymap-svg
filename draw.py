@@ -120,24 +120,31 @@ def print_layer(x, y, layername):
 
     y += settings.font_size * 1.5
     
+    # Print the left side
     print_block(
         x,
         y,
         layer["left"]
     )
+
+    # Print the right side
     print_block(
         x + HAND_W + settings.outer_pad_w,
         y,
         layer["right"],
     )
+
+    # Print the left thumb cluster
     print_row(
-        x + 3 * KEYSPACE_W,
-        y + 3 * KEYSPACE_H,
+        x + (settings.hand_cols - settings.hand_thumbs_cols) * KEYSPACE_W,
+        y + settings.hand_rows * KEYSPACE_H,
         layer["thumbs"]["left"],
     )
+
+    # Print the right thumb cluster
     print_row(
         x + HAND_W + settings.outer_pad_w,
-        y + 3 * KEYSPACE_H,
+        y + settings.hand_rows * KEYSPACE_H,
         layer["thumbs"]["right"],
     )
 

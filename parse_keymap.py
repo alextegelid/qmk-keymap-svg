@@ -1,4 +1,5 @@
 import re
+import settings
 
 def parse_keymap(keymap_rows):
     # Parse the keymap.
@@ -36,13 +37,13 @@ def parse_keymap(keymap_rows):
             if not keys:
                 continue
 
-            if current_layer_row == 3:
-                keymap[current_layer]["thumbs"]["left"] = keys[0:2]
-                keymap[current_layer]["thumbs"]["right"] = keys[2:4]
+            if current_layer_row == settings.hand_rows:
+                keymap[current_layer]["thumbs"]["left"] = keys[0:settings.hand_thumbs_cols]
+                keymap[current_layer]["thumbs"]["right"] = keys[settings.hand_thumbs_cols:settings.hand_thumbs_cols*2]
                 continue
 
-            keymap[current_layer]["left"].append(keys[0:5])
-            keymap[current_layer]["right"].append(keys[5:10])
+            keymap[current_layer]["left"].append(keys[0:settings.hand_cols])
+            keymap[current_layer]["right"].append(keys[settings.hand_cols:settings.hand_cols*2])
             current_layer_row += 1
 
 
