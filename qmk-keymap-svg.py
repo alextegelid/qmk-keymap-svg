@@ -6,6 +6,7 @@ from labels import get_label
 from html import escape
 from parse_keymap import parse_keymap
 from parse_key_action import parse_key_action
+from custom_keycodes import get_custom_keycode_definitions, expand_custom_keycode
 
 # Exit if there are no arguments
 if len(sys.argv) != 2:
@@ -18,6 +19,10 @@ FILENAME = sys.argv[1]
 # Read file
 f = open(FILENAME, "r")
 filecontents = f.read()
+
+custom_keycodes = []
+if settings.parse_custom_keycodes:
+    custom_keycodes = get_custom_keycode_definitions(FILENAME)
 
 KEYMAP = parse_keymap(filecontents)
 
@@ -38,6 +43,9 @@ def filter_key_word(string):
 
 
 def print_key(x, y, key):
+    if settings.parse_custom_keycodes:
+        key = expand_custom_keycode(custom_keycodes, key)
+
     key_class = ""
     key_hold_name = ""
     key_hold_type = ""
