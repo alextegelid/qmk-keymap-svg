@@ -163,7 +163,7 @@ def print_board(x, y, keymap):
         y += LAYER_H
 
 
-
+# Define global meassurements
 KEYSPACE_W = settings.key_w + 2 * settings.inner_pad_w
 KEYSPACE_H = settings.key_h + 2 * settings.inner_pad_h
 HAND_W = settings.hand_cols * KEYSPACE_W
@@ -173,11 +173,13 @@ LAYER_H = HAND_H
 BOARD_W = LAYER_W + 2 * settings.outer_pad_w
 BOARD_H = len(KEYMAP) * LAYER_H + (len(KEYMAP) + 1) * settings.outer_pad_h
 
+# If debug isn't enabled, route the output to keymap.svg
 if settings.debug is False:
     orig_stdout = sys.stdout
     f = open("keymap.svg", "w")
     sys.stdout = f
 
+# Start the output
 print(
     f'<svg width="{BOARD_W}" height="{BOARD_H}" viewBox="0 0 {BOARD_W} {BOARD_H}" xmlns="http://www.w3.org/2000/svg">'
 )
@@ -185,6 +187,7 @@ print(f"<style>{style.STYLE}</style>")
 print_board(0, 0, KEYMAP)
 print("</svg>")
 
+# If debug isn't enabled, close the file and redirect output back to stdout
 if settings.debug is False:
     sys.stdout = orig_stdout
     f.close()
