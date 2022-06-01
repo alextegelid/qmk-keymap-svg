@@ -14,7 +14,7 @@ The `keymap.svg` file will be saves (or overwritten) in the same folder as `qmk_
 
 ## Todo
 - [X] Parse and show layer toggles
-- [ ] Show held layer toggles on the correct layer
+- [ ] Show held layer toggles on the correct layer. __Help wanted!__
 - [X] Find and parse custom keycodes
   - [X] Find and parse custom keycodes in included heades files
 - [X] Find and parse mod-tap and modifier keys
