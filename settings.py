@@ -21,7 +21,8 @@ line_spacing = font_size * 1.2
 auto_capitalize_keycode = True
 
 # Define keys that should appear as dimmed.
-# Use original keycodes before they are converted to labels. Eg. KC_NO and KC_TRNS
+# Use original raw keycodes before they are filtered and converted to labels.
+# Eg. KC_NO and KC_TRNS
 dim_keycodes = [
     "KC_NO",
     "KC_TRNS",
