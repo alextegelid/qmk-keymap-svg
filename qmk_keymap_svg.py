@@ -7,6 +7,10 @@ from html import escape
 from parse_keymap import parse_keymap
 from parse_key_action import parse_key_action
 from custom_keycodes import get_custom_keycode_definitions, expand_custom_keycodes
+from layer_toggles import get_layer_toggles
+
+
+# TODO: Move calculation of exact key positioning and size into a separate function
 
 # Exit if there are no arguments
 if len(sys.argv) != 2:
@@ -27,6 +31,7 @@ if settings.parse_custom_keycodes:
     custom_keycodes = get_custom_keycode_definitions(FILENAME)
     KEYMAP = expand_custom_keycodes(KEYMAP, custom_keycodes)
 
+LAYER_TOGGLES = get_layer_toggles(KEYMAP)
 
 def filter_key_word(string):
     for prefix in settings.keycode_prefixes:
@@ -41,13 +46,13 @@ def filter_key_word(string):
     return key_label
 
 
-def print_key(x, y, key):
+def print_key(x, y, key, blockname, row_index, key_index, layername):
     key_class = ""
     key_hold_name = ""
     key_hold_type = ""
     key_label_classes = []
     key = parse_key_action(key)
-
+    
     if type(key) is dict:
         key_class = key["class"] if "class" in key else ""
         key_hold_name = key["hold-key"] if "hold-key" in key else ""
@@ -55,6 +60,14 @@ def print_key(x, y, key):
         key_hold_type = key["type"] if "type" in key else "no-hold"
     else:
         key_name = key
+
+    # Override key info if it's a held layer toggle
+    if layername in LAYER_TOGGLES and key_index == LAYER_TOGGLES[layername]["key_index"] and row_index == LAYER_TOGGLES[layername]["row_index"] and blockname == LAYER_TOGGLES[layername]["block"]:
+        key_class += " layer-toggle-held"
+        key_label_classes.append("layer-toggle-held")
+        key_hold_name = LAYER_TOGGLES[layername]["block"]
+        key_hold_type = "block"
+        key_name = layername
 
     print(
         f'<rect rx="{settings.key_rx}" ry="{settings.key_ry}" x="{x + settings.inner_pad_w}" y="{y + settings.inner_pad_h}" width="{settings.key_w}" height="{settings.key_h}" class="{key_class}" />'
@@ -102,21 +115,20 @@ def print_key(x, y, key):
             label_y += settings.line_spacing
 
 
-def print_row(x, y, row):
-    for key in row:
-        print_key(x, y, key)
+def print_row(x, y, row, blockname, row_index, layername):
+    for key_index, key in enumerate(row):
+        print_key(x, y, key, blockname, row_index, key_index, layername)
         x += KEYSPACE_W
 
 
 def print_block(x, y, blockname, layername):
     block = KEYMAP[layername][blockname]
-    for row in block:
-        print_row(x, y, row)
+    for row_index, row in enumerate(block):
+        print_row(x, y, row, blockname, row_index, layername)
         y += KEYSPACE_H
 
 
 def print_layer(x, y, layername):
-
     layer = KEYMAP[layername]
 
     # Print the layer name

@@ -20,8 +20,8 @@ STYLE = """
         stroke: transparent;
     }
 
-    .held {
-        fill: #fdd;
+    rect.layer-toggle-held {
+        fill: #d0e7f5;
     }
 
     .hold-action {
