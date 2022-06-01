@@ -12,9 +12,13 @@ The `keymap.svg` file will be saves (or overwritten) in the same folder as `qmk_
 ## Demo image
 ![Demo of how the output may look](demo.png)
 
+## Known issues
+- Held layer toggles are only shown if they're not nested inside other layers. 
+
 ## Todo
 - [X] Parse and show layer toggles
-- [ ] Show held layer toggles on the correct layer. __Help wanted❗__
+- [X] Show held layer toggles on the correct layer. 
+  - [ ] Show nested layer toggles on different layers.
 - [X] Find and parse custom keycodes
   - [X] Find and parse custom keycodes in included heades files
 - [X] Find and parse mod-tap and modifier keys
