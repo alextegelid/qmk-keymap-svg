@@ -10,7 +10,7 @@ python3 qmk_keymap_svg.py path/to/keymap.c
 The `keymap.svg` file will be saves (or overwritten) in the same folder as `qmk_keymap_svg.py`. 
 
 ## Demo image
-![Demo of how the output may look](keymap-demo.png)
+![Demo of how the output may look](demo.png)
 
 ## Todo
 - [X] Parse and show layer toggles
