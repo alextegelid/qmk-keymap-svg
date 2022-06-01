@@ -2,8 +2,8 @@ def get_label(keycode):
     return keylabels[keycode] if keycode in keylabels else keycode
 
 keylabels = {
-    "XXXXXXX": "",
-    "_______": "",
+    "XXXXXXX": "———",
+    "_______": "▽",
     "ODIA": "Ö",
     "MINS": "-",
     "MINUS": "-",

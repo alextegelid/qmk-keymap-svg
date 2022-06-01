@@ -20,5 +20,14 @@ line_spacing = font_size * 1.2
 # Keycodes that includes an underscore will not be capitalized.
 auto_capitalize_keycode = True
 
+# Define keys that should appear as dimmed.
+# Use original keycodes before they are converted to labels. Eg. KC_NO and KC_TRNS
+dim_keycodes = [
+    "KC_NO",
+    "KC_TRNS",
+    "_______",
+    "XXXXXXX",
+]
+
 parse_custom_keycodes = True
 search_included_header_files = True

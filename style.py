@@ -11,6 +11,10 @@ STYLE = """
         stroke: #e1e4e8;
     }
 
+    .label-dim {
+        fill: #ddd;
+    }
+
     .layer-rect {
         fill: #d0e7f5;
         stroke: transparent;

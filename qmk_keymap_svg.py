@@ -49,6 +49,7 @@ def print_key(x, y, key):
     key_class = ""
     key_hold_name = ""
     key_hold_type = ""
+    key_label_classes = []
     key = parse_key_action(key)
 
     if type(key) is dict:
@@ -63,8 +64,12 @@ def print_key(x, y, key):
         f'<rect rx="{settings.key_rx}" ry="{settings.key_ry}" x="{x + settings.inner_pad_w}" y="{y + settings.inner_pad_h}" width="{settings.key_w}" height="{settings.key_h}" class="{key_class}" />'
     )
 
-    key_name = filter_key_word(key_name)
+    if key_name in settings.dim_keycodes:
+        key_label_classes.append("label-dim")
     
+    key_name = filter_key_word(key_name)
+    key_label_classes_str = " ".join(key_label_classes)
+
     words = key_name.split()
     label_y = y + KEYSPACE_H / 2
 
@@ -72,10 +77,10 @@ def print_key(x, y, key):
         hold_action_font_size = settings.font_size * 0.75
         hold_action_y = y + KEYSPACE_H - hold_action_font_size
         print(
-            f'<text text-anchor="middle" font-size="{settings.font_size}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(key_name)}</text>'
+            f'<text text-anchor="middle" font-size="{settings.font_size}" class="{key_label_classes_str}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(key_name)}</text>'
         )
         print(
-            f'<text text-anchor="middle" font-size="{hold_action_font_size}" class="hold-action -{key_hold_type}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{hold_action_y}">{escape(key_hold_name)}</text>'
+            f'<text text-anchor="middle" font-size="{hold_action_font_size}" class="{key_label_classes_str} hold-action -{key_hold_type}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{hold_action_y}">{escape(key_hold_name)}</text>'
         )
 
     if key_hold_type == "layer":
@@ -83,7 +88,7 @@ def print_key(x, y, key):
         label_bg_height = hold_action_font_size * 1.2
         hold_action_y = y + KEYSPACE_H - label_bg_height/1.35
         print(
-            f'<text text-anchor="middle" font-size="{settings.font_size}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(key_name)}</text>'
+            f'<text text-anchor="middle" font-size="{settings.font_size}" class="{key_label_classes_str}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(key_name)}</text>'
         )
         print(
            f'<rect rx="{settings.key_rx}" ry="{settings.key_ry}" x="{x + settings.inner_pad_w}" y="{y + settings.key_h + settings.inner_pad_w - label_bg_height}" width="{settings.key_w}" height="{label_bg_height}" class="layer-rect" />'
@@ -96,7 +101,7 @@ def print_key(x, y, key):
         label_y = y + (KEYSPACE_H - (len(words) - 1) * settings.line_spacing) / 2
         for word in key_name.split():
             print(
-                f'<text text-anchor="middle" font-size="{settings.font_size}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(word)}</text>'
+                f'<text text-anchor="middle" font-size="{settings.font_size}" class="{key_label_classes_str}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(word)}</text>'
             )
             label_y += settings.line_spacing
 
