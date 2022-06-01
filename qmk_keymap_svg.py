@@ -35,9 +35,7 @@ LAYER_TOGGLES = get_layer_toggles(KEYMAP)
 
 def filter_key_word(string):
     for prefix in settings.keycode_prefixes:
-        if string.startswith(prefix):
-            string = string[len(prefix):]
-            break 
+        string = string.replace(prefix, "")
 
     key_label = get_label(string)
     if "_" not in key_label and settings.auto_capitalize_keycode:
