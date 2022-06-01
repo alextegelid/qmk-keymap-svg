@@ -28,11 +28,12 @@ KEYMAP = parse_keymap(filecontents)
 
 
 def filter_key_word(string):
-    stripped_keycode = string\
-        .replace("KC_", "")\
-        .replace("SE_", "")
+    for prefix in settings.keycode_prefixes:
+        if string.startswith(prefix):
+            string = string[len(prefix):]
+            break 
 
-    key_label = get_label(stripped_keycode)
+    key_label = get_label(string)
     if "_" not in key_label and settings.auto_capitalize_keycode:
         key_label = key_label.title()
 

@@ -30,5 +30,12 @@ dim_keycodes = [
     "XXXXXXX",
 ]
 
+# Define keycode prefixes that should be stripped from the keycode. The prefix 
+# will be replaced before the keycode is replaces with a label.
+keycode_prefixes = [
+    "KC_",
+    "SE_",
+]
+
 parse_custom_keycodes = True
 search_included_header_files = True
