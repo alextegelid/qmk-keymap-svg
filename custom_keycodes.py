@@ -14,7 +14,7 @@ def get_custom_keycode_definitions(filepath):
         included_header_files = find_included_header_files(filepath)
         filepaths += included_header_files
 
-    custom_keycodes = []
+    custom_keycodes = {}
     for filepath in filepaths:
         # Add the base dir if it's not already there
         if not base_dir in filepath:
@@ -29,9 +29,7 @@ def get_custom_keycode_definitions(filepath):
             for line in f:
                 if line.startswith('#define'):
                     line = line.split(" ", 2)
-                    custom_keycodes.append({
-                        line[1].strip(): line[2].strip()
-                    })
+                    custom_keycodes[line[1].strip()] = line[2].strip()
                     
     return custom_keycodes
 
@@ -49,11 +47,20 @@ def find_included_header_files(filepath):
                     
     return included_header_files
 
+def expand_custom_keycodes(keymap, custom_keycodes):
+    for layer_name, layer in keymap.items():
+        for block_name, block in layer.items():
+            for row_index, row in enumerate(block):
+                for key_index, key in enumerate(row):
+                    if key in custom_keycodes:
+                        keymap[layer_name][block_name][row_index][key_index] = custom_keycodes[key]
+
+    return keymap
+
 def expand_custom_keycode(custom_keycodes, keycode):
     """
     Translates a custom keycode to a keycode.
     """
-    for custom_keycode in custom_keycodes:
-        if keycode in custom_keycode:
-            return custom_keycode[keycode]
+    if keycode in custom_keycodes:
+        return custom_keycodes[keycode]
     return keycode

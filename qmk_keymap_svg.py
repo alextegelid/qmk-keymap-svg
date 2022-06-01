@@ -6,7 +6,7 @@ from labels import get_label
 from html import escape
 from parse_keymap import parse_keymap
 from parse_key_action import parse_key_action
-from custom_keycodes import get_custom_keycode_definitions, expand_custom_keycode
+from custom_keycodes import get_custom_keycode_definitions, expand_custom_keycodes
 
 # Exit if there are no arguments
 if len(sys.argv) != 2:
@@ -20,11 +20,12 @@ FILENAME = sys.argv[1]
 f = open(FILENAME, "r")
 filecontents = f.read()
 
+KEYMAP = parse_keymap(filecontents)
+
 custom_keycodes = []
 if settings.parse_custom_keycodes:
     custom_keycodes = get_custom_keycode_definitions(FILENAME)
-
-KEYMAP = parse_keymap(filecontents)
+    KEYMAP = expand_custom_keycodes(KEYMAP, custom_keycodes)
 
 
 def filter_key_word(string):
@@ -41,9 +42,6 @@ def filter_key_word(string):
 
 
 def print_key(x, y, key):
-    if settings.parse_custom_keycodes:
-        key = expand_custom_keycode(custom_keycodes, key)
-
     key_class = ""
     key_hold_name = ""
     key_hold_type = ""
@@ -110,7 +108,8 @@ def print_row(x, y, row):
         x += KEYSPACE_W
 
 
-def print_block(x, y, block):
+def print_block(x, y, blockname, layername):
+    block = KEYMAP[layername][blockname]
     for row in block:
         print_row(x, y, row)
         y += KEYSPACE_H
@@ -131,28 +130,32 @@ def print_layer(x, y, layername):
     print_block(
         x,
         y,
-        layer["left"]
+        "left",
+        layername
     )
 
     # Print the right side
     print_block(
         x + HAND_W + settings.outer_pad_w,
         y,
-        layer["right"],
+        "right",
+        layername
     )
 
     # Print the left thumb cluster
-    print_row(
+    print_block(
         x + (settings.hand_cols - settings.hand_thumbs_cols) * KEYSPACE_W,
         y + settings.hand_rows * KEYSPACE_H,
-        layer["thumbs"]["left"],
+        "thumbs_left",
+        layername
     )
 
     # Print the right thumb cluster
-    print_row(
+    print_block(
         x + HAND_W + settings.outer_pad_w,
         y + settings.hand_rows * KEYSPACE_H,
-        layer["thumbs"]["right"],
+        "thumbs_right",
+        layername
     )
 
 

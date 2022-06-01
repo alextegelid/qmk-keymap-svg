@@ -39,10 +39,8 @@ def parse_keymap(filecontents):
             keymap[current_layer] = {
                 "left": [],
                 "right": [],
-                "thumbs": {
-                    "left": [],
-                    "right": [],
-                },
+                "thumbs_left": [],
+                "thumbs_right": [],
             }
             continue
         else:
@@ -51,8 +49,8 @@ def parse_keymap(filecontents):
                 continue
 
             if current_layer_row == settings.hand_rows:
-                keymap[current_layer]["thumbs"]["left"] = keys[0:settings.hand_thumbs_cols]
-                keymap[current_layer]["thumbs"]["right"] = keys[settings.hand_thumbs_cols:settings.hand_thumbs_cols*2]
+                keymap[current_layer]["thumbs_left"].append(keys[0:settings.hand_thumbs_cols])
+                keymap[current_layer]["thumbs_right"].append(keys[settings.hand_thumbs_cols:settings.hand_thumbs_cols*2])
                 continue
 
             keymap[current_layer]["left"].append(keys[0:settings.hand_cols])
