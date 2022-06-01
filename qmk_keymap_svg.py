@@ -26,9 +26,6 @@ if settings.parse_custom_keycodes:
 
 KEYMAP = parse_keymap(filecontents)
 
-def held(key):
-    return {"key": key, "class": "held"}
-
 
 def filter_key_word(string):
     stripped_keycode = string\
