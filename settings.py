@@ -10,7 +10,7 @@ debug = False # Debug mode prints the SVG to stdout
 auto_capitalize_keycode = True # Auto capitalize keycodes that is not in the labels list. Keycodes that includes an underscore will not be capitalized.
 
 # Define global meassurements in pixels
-key_w = 80
+key_w = 75
 key_h = 65
 key_rx = 5
 key_ry = 5
@@ -37,7 +37,7 @@ thumb_offset = {
     "y": 15,
 }
 
-font_size = 16
+font_size = 14
 line_spacing = font_size * 1.2
 
 # Define keys that should appear as dimmed.
