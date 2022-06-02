@@ -155,7 +155,7 @@ def print_layer(x, y, layername):
 
     # Print the right side
     print_block(
-        x + HAND_W + settings.outer_pad_w,
+        x + HAND_W + settings.middle_pad_w,
         y,
         "right",
         layername
@@ -163,16 +163,16 @@ def print_layer(x, y, layername):
 
     # Print the left thumb cluster
     print_block(
-        x + (settings.hand_cols - settings.hand_thumbs_cols) * KEYSPACE_W,
-        y + settings.hand_rows * KEYSPACE_H,
+        x + (settings.hand_cols - settings.hand_thumbs_cols) * KEYSPACE_W + (settings.thumb_offset["x"] * KEYSPACE_W / 100),
+        y + settings.hand_rows * KEYSPACE_H + (settings.thumb_offset["y"] * KEYSPACE_H / 100),
         "thumbs_left",
         layername
     )
 
     # Print the right thumb cluster
     print_block(
-        x + HAND_W + settings.outer_pad_w,
-        y + settings.hand_rows * KEYSPACE_H,
+        x + HAND_W + settings.middle_pad_w - (settings.thumb_offset["x"] * KEYSPACE_W / 100),
+        y + settings.hand_rows * KEYSPACE_H + (settings.thumb_offset["y"] * KEYSPACE_H / 100),
         "thumbs_right",
         layername
     )
@@ -181,7 +181,7 @@ def print_layer(x, y, layername):
 def print_board(x, y, keymap):
     x += settings.outer_pad_w
     for layername in keymap:
-        y += settings.outer_pad_h
+        y += settings.layer_pad_h
         print_layer(x, y, layername)
         y += LAYER_H
 
@@ -191,10 +191,10 @@ KEYSPACE_W = settings.key_w + 2 * settings.inner_pad_w
 KEYSPACE_H = settings.key_h + 2 * settings.inner_pad_h
 HAND_W = settings.hand_cols * KEYSPACE_W
 HAND_H = (settings.hand_rows + 1) * KEYSPACE_H + settings.font_size * 1.5
-LAYER_W = 2 * HAND_W + settings.outer_pad_w
+LAYER_W = 2 * HAND_W + settings.middle_pad_w
 LAYER_H = HAND_H
 BOARD_W = LAYER_W + 2 * settings.outer_pad_w
-BOARD_H = len(KEYMAP) * LAYER_H + (len(KEYMAP) + 1) * settings.outer_pad_h
+BOARD_H = len(KEYMAP) * LAYER_H + (len(KEYMAP) + 1) * settings.layer_pad_h
 
 # If debug isn't enabled, route the output to keymap.svg
 if settings.debug is False:
