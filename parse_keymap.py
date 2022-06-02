@@ -1,6 +1,13 @@
 import re
 import sys
-import settings
+
+from os.path import exists
+
+# Import the user settings file or the default one
+if exists("settings_user.py"):
+    import settings_user as settings
+else:
+    import settings_default as settings
 
 def parse_keymap(filecontents):
     # Find the beginning of the keymap definition

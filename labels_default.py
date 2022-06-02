@@ -1,12 +1,8 @@
-def get_label(keycode):
-    return keylabels[keycode] if keycode in keylabels else keycode
-
 keylabels = {
     "XXXXXXX": "———",
     "NO": "———",
     "_______": "▽",
     "TRNS": "▽",
-    "ODIA": "Ö",
     "MINS": "-",
     "MINUS": "-",
     "COMM": ",",
@@ -74,7 +70,6 @@ keylabels = {
     "UP": "↑",
     "PGDN": "PgDn",
     "PGUP": "PgUp",
-    "CAPSWORD": "Caps Word",
     "CAPS": "Caps Lock",
     "VOLU": "Vol Up",
     "VOLD": "Vol Dn", 

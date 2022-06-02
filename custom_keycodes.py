@@ -1,5 +1,10 @@
-import settings
 from os.path import exists, dirname, realpath
+
+# Import the user settings file or the default one
+if exists("settings_user.py"):
+    import settings_user as settings
+else:
+    import settings_default as settings
 
 def get_custom_keycode_definitions(filepath):
     """

@@ -1,13 +1,25 @@
 import sys
-import settings
 import style
 
-from labels import get_label
+from os.path import exists
 from html import escape
 from parse_keymap import parse_keymap
 from parse_key_action import parse_key_action
 from custom_keycodes import get_custom_keycode_definitions, expand_custom_keycodes
 from layer_toggles import get_layer_toggles
+
+
+# Import the user settings file or the default one
+if exists("settings_user.py"):
+    import settings_user as settings
+else:
+    import settings_default as settings
+ 
+# Import the user keylabels file or the default one
+if exists("labels_user.py"):
+    from labels_user import keylabels
+else:
+    from labels_default import keylabels
 
 
 # TODO: Move calculation of exact key positioning and size into a separate function
@@ -37,7 +49,8 @@ def filter_key_word(string):
     for prefix in settings.keycode_prefixes:
         string = string.replace(prefix, "")
 
-    key_label = get_label(string)
+    key_label = keylabels[string] if string in keylabels else string
+
     if "_" not in key_label and settings.auto_capitalize_keycode:
         key_label = key_label.title()
 
