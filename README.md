@@ -1,19 +1,20 @@
 # Draw an svg image from your QMK keymap.c file
 Derived from [callum-oakley/keymap](https://github.com/callum-oakley/keymap) this adaptation takes the keymap.c as an argument and parses it to generate the svg image. This is very much a work in progress. If you have any suggestions, please open a PR or an issue.
 
-Currently only works with the layout of the [Ferris keyboard](https://github.com/davidphilipbarr/Sweep). I use the [Ben Vallack mod](https://github.com/benvallack/Ferris-Sweep-Tweaked) of the [Ferris Sweep](https://github.com/davidphilipbarr/Sweep) myself.
+Currently only tested with the layout of the [Ferris keyboard](https://github.com/davidphilipbarr/Sweep). I use the [Ben Vallack mod](https://github.com/benvallack/Ferris-Sweep-Tweaked) of the [Ferris Sweep](https://github.com/davidphilipbarr/Sweep) myself.
 
 ## Usage
 ```
 python3 qmk_keymap_svg.py path/to/keymap.c
 ```
-The `keymap.svg` file will be saves (or overwritten) in the same folder as `qmk_keymap_svg.py`. 
+The `keymap.svg` file will be saved (or overwritten) in the same folder as `qmk_keymap_svg.py`. 
 
 ## Demo image
 ![Demo of how the output may look](demo.png)
 
 ## Known issues
 - Layer toggles only work for one definition per layer. Any repeated layer toggle definitions will overwrite the previous.
+- Thumb clusters can only have one row
 
 ## Todo
 - [X] Parse and show layer toggles
