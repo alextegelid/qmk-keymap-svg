@@ -1,3 +1,4 @@
 __pycache__/
 keymap.svg
 .vscode/launch.json
+*.swp
