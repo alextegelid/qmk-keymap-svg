@@ -10,7 +10,7 @@ python3 qmk_keymap_svg.py path/to/keymap.c
 The `keymap.svg` file will be saved (or overwritten) in the same folder as `qmk_keymap_svg.py`. 
 
 ## Demo image
-![Demo of how the output may look](demo.png)
+![Demo of how the output may look](demo-2.png)
 
 ## Known issues
 - Layer toggles only work for one definition per layer. Any repeated layer toggle definitions will overwrite the previous.
