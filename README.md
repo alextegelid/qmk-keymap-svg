@@ -22,4 +22,5 @@ Duplicate the `labels_default.py` and `settings_default.py` files and rename the
 ## Todo
 - [ ] Show nested layer toggles on different layers.
 - [ ] Handle multiple toggles per layer
+- [ ] Show key combos
 - [ ] Add support for arbitrary keyboard layouts
