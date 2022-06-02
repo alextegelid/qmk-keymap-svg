@@ -16,7 +16,6 @@ key_ry = 5
 inner_pad_w = 5
 inner_pad_h = 5
 outer_pad_w = 40
-outer_pad_h = 40
 middle_pad_w = 150
 layer_pad_h = 150
 
