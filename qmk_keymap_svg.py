@@ -50,7 +50,16 @@ def print_key(x, y, key, blockname, row_index, key_index, layername):
     key_hold_type = ""
     key_label_classes = []
     key = parse_key_action(key)
-    
+
+    column_stagger_value = 0
+    if blockname == "left":
+        column_stagger_value = (settings.column_stagger[key_index] * settings.key_h / 100) if key_index <= len(settings.column_stagger) else 0
+    elif blockname == "right":
+        column_stagger_value = (settings.column_stagger[-1 - key_index] * settings.key_h / 100) if key_index <= len(settings.column_stagger) else 0
+
+    y = y + column_stagger_value
+
+
     if type(key) is dict:
         key_class = key["class"] if "class" in key else ""
         key_hold_name = key["hold-key"] if "hold-key" in key else ""

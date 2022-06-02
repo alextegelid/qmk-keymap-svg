@@ -2,6 +2,16 @@ hand_cols = 5
 hand_rows = 3
 hand_thumbs_cols = 2
 
+# Stagger values as percentage of the key height,
+# counting from the outer edge of the board
+column_stagger = [
+    60,
+    -10,
+    -40,
+    -10,
+    0,
+]
+
 debug = False
 
 key_w = 80
