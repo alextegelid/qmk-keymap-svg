@@ -9,15 +9,15 @@ python3 qmk_keymap_svg.py path/to/keymap.c
 ```
 The `keymap.svg` file will be saved (or overwritten) in the same folder as `qmk_keymap_svg.py`. 
 
+## Customizing labels and settings
+Duplicate the `labels_default.py` and `settings_default.py` files and rename them ro `labels_user.py` and `settings_user.py` respectively. Those files will then be used instead of the default ones. Make changes to the user files and run the script again.
+
 ## Demo image
 ![Demo of how the output may look](demo-2.png)
 
 ## Known issues
 - Layer toggles only work for one definition per layer. Any repeated layer toggle definitions will overwrite the previous.
 - Thumb clusters can only have one row
-
-## Customizing labels and settings
-Duplicate the `labels_default.py` and `settings_default.py` files and rename them ro `labels_user.py` and `settings_user.py` respectively. Those files will then be used instead of the default ones. Make changes to the user files and run the script again.
 
 ## Todo
 - [X] Parse and show layer toggles
