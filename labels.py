@@ -75,6 +75,7 @@ keylabels = {
     "PGDN": "PgDn",
     "PGUP": "PgUp",
     "CAPSWORD": "Caps Word",
+    "CAPS": "Caps Lock",
     "VOLU": "Vol Up",
     "VOLD": "Vol Dn", 
     "BTN1": "Mouse btn1",
