@@ -97,6 +97,7 @@ def print_key(x, y, key, blockname, row_index, key_index, layername):
         key_label_classes.append("label-dim")
     
     key_name = filter_key_word(key_name)
+    key_hold_name = filter_key_word(key_hold_name)
     key_label_classes_str = " ".join(key_label_classes)
 
     words = key_name.split()
