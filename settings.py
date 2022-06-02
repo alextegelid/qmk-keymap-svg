@@ -4,20 +4,21 @@ hand_rows = 3
 hand_thumbs_cols = 2
 
 # Misc settings
-parse_custom_keycodes = True
-search_included_header_files = True
-debug = False
+parse_custom_keycodes = True # Set to False if you don't want to parse custom keycodes
+search_included_header_files = True # Search for included header files in the same directory as the keymap file
+debug = False # Debug mode prints the SVG to stdout
+auto_capitalize_keycode = True # Auto capitalize keycodes that is not in the labels list. Keycodes that includes an underscore will not be capitalized.
 
 # Define global meassurements in pixels
 key_w = 80
 key_h = 65
 key_rx = 5
 key_ry = 5
-inner_pad_w = 5
-inner_pad_h = 5
-outer_pad_w = 40
-middle_pad_w = 150
-layer_pad_h = 150
+inner_pad_w = 5 # Padding between keys horizontally
+inner_pad_h = 5 # Padding between keys vertically
+outer_pad_w = 40 # Padding on the outer edges
+middle_pad_w = 150 # Padding between left and right hand
+layer_pad_h = 150 # Padding between layers
 
 # Column stagger values as percentage of the key height,
 # counting from the outer edge of the board
@@ -38,10 +39,6 @@ thumb_offset = {
 
 font_size = 16
 line_spacing = font_size * 1.2
-
-# Auto capitalize keycodes that is not in the labels list.
-# Keycodes that includes an underscore will not be capitalized.
-auto_capitalize_keycode = True
 
 # Define keys that should appear as dimmed.
 # Use original raw keycodes before they are filtered and converted to labels.
