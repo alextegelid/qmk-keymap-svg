@@ -20,13 +20,6 @@ Duplicate the `labels_default.py` and `settings_default.py` files and rename the
 - Thumb clusters can only have one row
 
 ## Todo
-- [X] Parse and show layer toggles
-- [X] Show held layer toggles on the correct layer. 
-  - [ ] Show nested layer toggles on different layers.
-  - [ ] Handle multiple toggles per layer
-- [X] Find and parse custom keycodes
-  - [X] Find and parse custom keycodes in included heades files
-- [X] Find and parse mod-tap and modifier keys
-- [X] Show default layer keys
-- [X] Make sure whitespace inside parentheses is ignored
+- [ ] Show nested layer toggles on different layers.
+- [ ] Handle multiple toggles per layer
 - [ ] Add support for arbitrary keyboard layouts
