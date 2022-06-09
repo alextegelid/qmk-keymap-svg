@@ -56,3 +56,8 @@ keycode_prefixes = [
     "KC_",
     "SE_",
 ]
+
+# Exclude custom keycodes from being replaced with default ones.
+untouched_custom_keycodes = [
+    # "EXAMPLE_KEYCODE",
+]

@@ -57,7 +57,7 @@ def expand_custom_keycodes(keymap, custom_keycodes):
         for block_name, block in layer.items():
             for row_index, row in enumerate(block):
                 for key_index, key in enumerate(row):
-                    if key in custom_keycodes:
+                    if key in custom_keycodes and key not in settings.untouched_custom_keycodes:
                         keymap[layer_name][block_name][row_index][key_index] = custom_keycodes[key]
 
     return keymap
