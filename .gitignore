@@ -1,6 +1,7 @@
 __pycache__/
 keymap.svg
 .vscode/launch.json
+.vscode/settings.json
 *.swp
 labels_user.py
 settings_user.py
