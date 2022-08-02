@@ -24,3 +24,4 @@ Duplicate the `labels_default.py` and `settings_default.py` files and rename the
 - [ ] Handle multiple toggles per layer
 - [ ] Show key combos
 - [ ] Add support for arbitrary keyboard layouts
+- [ ] Add support for rotating and positioning thumb cluster keys
