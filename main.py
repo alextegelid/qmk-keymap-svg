@@ -117,7 +117,7 @@ def print_key(x, y, key, blockname, row_index, key_index, layername):
             f'<text text-anchor="middle" font-size="{hold_action_font_size}" class="{key_label_classes_str} hold-action -{key_hold_type}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{hold_action_y}">{escape(key_hold_name)}</text>'
         )
 
-    if key_hold_type == "layer":
+    elif key_hold_type == "layer":
         hold_action_font_size = settings.font_size * 0.75
         label_bg_height = hold_action_font_size * 1.2
         hold_action_y = y + KEYSPACE_H - settings.inner_pad_h - label_bg_height/2
