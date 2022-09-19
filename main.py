@@ -1,5 +1,4 @@
 import sys
-import style
 
 from os.path import exists
 from html import escape
@@ -8,6 +7,11 @@ from parse_key_action import parse_key_action
 from custom_keycodes import get_custom_keycode_definitions, expand_custom_keycodes
 from layer_toggles import get_layer_toggles
 
+# Import the user settings file or the default one
+if exists("style_user.py"):
+    import style_user as style
+else:
+    import style_default as style
 
 # Import the user settings file or the default one
 if exists("settings_user.py"):
@@ -154,7 +158,7 @@ def print_layer(x, y, layername):
 
     # Print the layer name
     print(
-        f'<text text-anchor="middle" font-size="{settings.font_size*1.5}" dominant-baseline="middle" x="{BOARD_W / 2}" y="{y}">{escape(layername)}</text>'
+        f'<text text-anchor="middle" class="layer-name" font-size="{settings.font_size*1.5}" dominant-baseline="middle" x="{BOARD_W / 2}" y="{y}">{escape(layername)}</text>'
     )
 
     y += settings.font_size * 1.5
