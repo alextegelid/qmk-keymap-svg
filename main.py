@@ -125,7 +125,7 @@ def print_key(x, y, key, blockname, row_index, key_index, layername):
             f'<text text-anchor="middle" font-size="{settings.font_size}" class="{key_label_classes_str}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(key_name)}</text>'
         )
         print(
-           f'<rect rx="{settings.key_rx}" ry="{settings.key_ry}" x="{x + settings.inner_pad_w}" y="{y + settings.key_h + settings.inner_pad_w - label_bg_height}" width="{settings.key_w}" height="{label_bg_height}" class="layer-rect" />'
+           f'<rect rx="{settings.key_rx}" ry="{settings.key_ry}" x="{x + settings.inner_pad_w + 1}" y="{y + settings.key_h + settings.inner_pad_w - label_bg_height - 1}" width="{settings.key_w - 2}" height="{label_bg_height}" class="layer-rect" />'
         )
         print(
             f'<text text-anchor="middle" font-size="{hold_action_font_size}" class="hold-action -{key_hold_type}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{hold_action_y}">{escape(key_hold_name)}</text>'
