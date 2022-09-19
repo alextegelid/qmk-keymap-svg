@@ -25,7 +25,7 @@ def parse_key_action(key):
         }
         
     # Find mod-tap XXXX_T(...). Eg. LGUI_T(KC_A)
-    mods = re.findall(r"([A-Z]+)(_T)\(([A-Z_]+)", key)
+    mods = re.findall(r"([A-Z]+)(_T)\(([A-Z0-9_]+)", key)
     if mods:
         mod = mods[0]
         return {
@@ -36,7 +36,7 @@ def parse_key_action(key):
         }
 
     # Find modifiers XXXX(...). Eg. LCTL(KC_LALT)
-    mods = re.findall(r"([A-Z]+)\(([A-Z_]+)", key)
+    mods = re.findall(r"([A-Z]+)\(([A-Z0-9_]+)", key)
     if mods:
         mod = mods[0]
         return mod[0] + " +" + mod[1]
