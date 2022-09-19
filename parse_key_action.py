@@ -39,7 +39,7 @@ def parse_key_action(key):
     mods = re.findall(r"([A-Z]+)\(([A-Z0-9_]+)", key)
     if mods:
         mod = mods[0]
-        return mod[0] + " +" + mod[1]
+        return mod[0] + " ö+" + mod[1]
 
     # Last resort. Return the key as is.
     return key
