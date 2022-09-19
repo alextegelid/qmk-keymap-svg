@@ -27,10 +27,15 @@ STYLE = """
         fill: #ddd;
     }
 
-     /* Layer toggle (LT) rectangle */
+    /* Layer toggle (LT) rectangle */
     rect.layer-rect {
         fill: #d0e7f5;
         stroke: transparent;
+    }
+
+    /* Homing key */
+    rect.homing {
+        stroke: #aaa;
     }
 
     /* Layer toggle (LT) text */

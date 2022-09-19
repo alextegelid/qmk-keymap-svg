@@ -8,6 +8,7 @@ parse_custom_keycodes = True # Set to False if you don't want to parse custom ke
 search_included_header_files = True # Search for included header files in the same directory as the keymap file
 debug = False # Debug mode prints the SVG to stdout
 auto_capitalize_keycode = True # Auto capitalize keycodes that is not in the labels list. Keycodes that includes an underscore will not be capitalized.
+mark_homing_keys = False # Mark keys that are used as homing keys
 
 # Define global meassurements in pixels
 key_w = 75

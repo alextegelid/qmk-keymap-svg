@@ -93,6 +93,10 @@ def print_key(x, y, key, blockname, row_index, key_index, layername):
         key_hold_type = "block"
         key_name = layername
 
+    # Mark homing key
+    if settings.mark_homing_keys and ((blockname == "left" and row_index == 1 and key_index == 3) or (blockname == "right" and row_index == 1 and key_index == 1)):
+        key_class += " homing"
+
     print(
         f'<rect rx="{settings.key_rx}" ry="{settings.key_ry}" x="{x + settings.inner_pad_w}" y="{y + settings.inner_pad_h}" width="{settings.key_w}" height="{settings.key_h}" class="{key_class}" />'
     )
