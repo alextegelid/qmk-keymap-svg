@@ -1,8 +1,8 @@
-# Draw an svg image from your QMK keymap.c file
+# Draw an svg image from your Ferris QMK keymap.c file
 
-Derived from [callum-oakley/keymap](https://github.com/callum-oakley/keymap) this adaptation takes the keymap.c as an argument and parses it to generate the svg image. This is very much a work in progress. If you have any suggestions, please open a PR or an issue.
+This script takes the keymap.c of a Ferris keyboard as an argument and parses it to generate the svg image. If you have any suggestions, please open a PR or an issue. Uses the drawing functions from [callum-oakley/keymap](https://github.com/callum-oakley/keymap).
 
-Currently only tested with the layout of the [Ferris keyboard](https://github.com/davidphilipbarr/Sweep). I use the [Ben Vallack mod](https://github.com/benvallack/Ferris-Sweep-Tweaked) of the [Ferris Sweep](https://github.com/davidphilipbarr/Sweep) myself. The default settings (column stagger, thumb cluster offset etc.) matches the layout of the Ferris keyboard.
+**Ferris only.** Currently only tested with the layout of the [Ferris keyboard](https://github.com/davidphilipbarr/Sweep). I use the [Ben Vallack mod](https://github.com/benvallack/Ferris-Sweep-Tweaked) of the [Ferris Sweep](https://github.com/davidphilipbarr/Sweep) myself. The default settings (column stagger, thumb cluster offset etc.) matches the layout of the Ferris keyboard. It should also work with similar layouts (Corne, Kyria etc.), but you may need to adjust the settings.
 
 ## Usage
 
@@ -18,7 +18,7 @@ Duplicate the `labels_default.py`, `style_default.py` and `settings_default.py` 
 
 ## Demo image
 
-![Demo of how the output may look](demo-2.png)
+![Demo of how the output may look](demo.png)
 
 ## Known issues
 
