@@ -17,8 +17,8 @@ key_rx = 5
 key_ry = 5
 inner_pad_w = 5 # Padding between keys horizontally
 inner_pad_h = 5 # Padding between keys vertically
-outer_pad_w = 40 # Padding on the outer edges
 middle_pad_w = 150 # Padding between left and right hand
+layer_pad_w = 0 # Padding on the outer layer edges
 layer_pad_h = 150 # Padding between layers
 
 # Column stagger values as percentage of the key height,

@@ -201,7 +201,7 @@ def print_layer(x, y, layername):
 
 
 def print_board(x, y, keymap):
-    x += settings.outer_pad_w
+    x += settings.layer_pad_w
     for layername in keymap:
         y += settings.layer_pad_h
         print_layer(x, y, layername)
@@ -215,7 +215,7 @@ HAND_W = settings.hand_cols * KEYSPACE_W
 HAND_H = (settings.hand_rows + 1) * KEYSPACE_H + settings.font_size * 1.5
 LAYER_W = 2 * HAND_W + settings.middle_pad_w
 LAYER_H = HAND_H
-BOARD_W = LAYER_W + 2 * settings.outer_pad_w
+BOARD_W = LAYER_W + 2 * settings.layer_pad_w
 BOARD_H = len(KEYMAP) * LAYER_H + (len(KEYMAP) + 1) * settings.layer_pad_h
 
 # If debug isn't enabled, route the output to keymap.svg
