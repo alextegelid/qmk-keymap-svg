@@ -7,10 +7,10 @@ This script takes the keymap.c of a Ferris keyboard as an argument and parses it
 ## Usage
 
 ```
-python3 qmk_keymap_svg.py path/to/keymap.c
+python3 main.py path/to/keymap.c
 ```
 
-The `keymap.svg` file will be saved (or overwritten) in the same folder as `qmk_keymap_svg.py`.
+The `keymap.svg` file will be saved (or overwritten) in the same folder as `main.py`.
 
 ## Customizing labels, styles and settings
 
