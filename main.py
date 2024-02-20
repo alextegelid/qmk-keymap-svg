@@ -1,11 +1,12 @@
 import sys
-
-from os.path import exists
 from html import escape
-from parse_keymap import parse_keymap
-from parse_key_action import parse_key_action
-from custom_keycodes import get_custom_keycode_definitions, expand_custom_keycodes
+from os.path import exists
+
+from custom_keycodes import (expand_custom_keycodes,
+                             get_custom_keycode_definitions)
 from layer_toggles import get_layer_toggles
+from parse_key_action import parse_key_action
+from parse_keymap import parse_keymap
 
 # Import the user settings file or the default one
 if exists("style_user.py"):
