@@ -30,7 +30,7 @@ else:
 
 # Exit if there are no arguments
 if len(sys.argv) != 2:
-    print("Usage: qmk_keymap_svg.py keymap.c")
+    print("Usage: main.py path/to/keymap.c")
     sys.exit(1)
 
 # Get the filename from the first argument
