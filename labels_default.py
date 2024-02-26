@@ -73,7 +73,7 @@ keylabels = {
     "PGUP": "PgUp",
     "CAPS": "Caps Lock",
     "VOLU": "Vol Up",
-    "VOLD": "Vol Dn",
+    "VOLD": "Vol Down",
     "MPLY": "Play/ Pause",
     "BRIU": "Bright Up",
     "BRID": "Bright Down",
