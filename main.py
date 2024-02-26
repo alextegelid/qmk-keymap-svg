@@ -1,3 +1,4 @@
+import os
 import sys
 from html import escape
 from os.path import exists
@@ -25,6 +26,7 @@ if exists("labels_user.py"):
     from labels_user import keylabels
 else:
     from labels_default import keylabels
+
 
 
 # TODO: Move calculation of exact key positioning and size into a separate function
@@ -224,6 +226,7 @@ if settings.debug is False:
     orig_stdout = sys.stdout
     f = open("keymap.svg", "w")
     sys.stdout = f
+    svg_path = os.path.abspath(f.name)
 
 # Start the output
 print(
@@ -237,3 +240,4 @@ print("</svg>")
 if settings.debug is False:
     sys.stdout = orig_stdout
     f.close()
+    print(f"Keymap SVG created at {svg_path}")
