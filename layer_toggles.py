@@ -11,4 +11,10 @@ def get_layer_toggles(keymap):
                             "row_index": row_index,
                             "key_index": key_index,
                         }
+                    elif key.startswith("MO("):
+                        layer_toggles[key[3:-1]] = {
+                            "block": block_name,
+                            "row_index": row_index,
+                            "key_index": key_index,
+                        }
     return layer_toggles

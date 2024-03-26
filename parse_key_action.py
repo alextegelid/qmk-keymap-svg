@@ -5,10 +5,20 @@ def parse_key_action(key):
     if key.startswith("LT(") and key.endswith(")"):
         key = key[3:-1]
         key = key.split(",")
-
         return {
             "key": key[1].strip(),
             "hold-key": key[0].strip(),
+            "class": "has-hold-action",
+            "type": "layer",
+        }
+
+    # Momentary layer, MO(...)
+    if key.startswith("MO(") and key.endswith(")"):
+        layer_name = key[3:-1]
+        key = "KC_NO"
+        return {
+            "key": key,
+            "hold-key": layer_name,
             "class": "has-hold-action",
             "type": "layer",
         }
