@@ -3,8 +3,7 @@ import sys
 from html import escape
 from os.path import exists
 
-from custom_keycodes import (expand_custom_keycodes,
-                             get_custom_keycode_definitions)
+from custom_keycodes import (expand_custom_keycodes, get_custom_keycode_definitions)
 from layer_toggles import get_layer_toggles
 from parse_key_action import parse_key_action
 from parse_keymap import parse_keymap
@@ -20,7 +19,7 @@ if exists("settings_user.py"):
     import settings_user as settings
 else:
     import settings_default as settings
- 
+
 # Import the user keylabels file or the default one
 if exists("labels_user.py"):
     from labels_user import keylabels
@@ -132,7 +131,7 @@ def print_key(x, y, key, blockname, row_index, key_index, layername):
             f'<text text-anchor="middle" font-size="{settings.font_size}" class="{key_label_classes_str}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{label_y}">{escape(key_name)}</text>'
         )
         print(
-           f'<rect rx="{settings.key_rx}" ry="{settings.key_ry}" x="{x + settings.inner_pad_w + 1}" y="{y + settings.key_h + settings.inner_pad_w - label_bg_height - 1}" width="{settings.key_w - 2}" height="{label_bg_height}" class="layer-rect" />'
+            f'<rect rx="{settings.key_rx}" ry="{settings.key_ry}" x="{x + settings.inner_pad_w + 1}" y="{y + settings.key_h + settings.inner_pad_w - label_bg_height - 1}" width="{settings.key_w - 2}" height="{label_bg_height}" class="layer-rect" />'
         )
         print(
             f'<text text-anchor="middle" font-size="{hold_action_font_size}" class="hold-action -{key_hold_type}" dominant-baseline="middle" x="{x + KEYSPACE_W / 2}" y="{hold_action_y}">{escape(key_hold_name)}</text>'
